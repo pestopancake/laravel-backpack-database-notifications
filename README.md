@@ -6,8 +6,8 @@
 
 Follow the steps for laravel's [database notifications prerequisites](https://laravel.com/docs/8.x/notifications#database-notifications), e.g: 
 
-> php artisan notifications:table
-> php artisan migrate
+    php artisan notifications:table
+    php artisan migrate
 
 ## Installation
 
