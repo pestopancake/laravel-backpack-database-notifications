@@ -30,7 +30,13 @@ Edit 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' and ad
 #### Use the included generic notification
 
     use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification
-    $user->notify(new DatabaseNotification())
+    $user->notify(new DatabaseNotification(
+        $type = 'info', // info / success / warning / error
+        $message = 'test notification',
+        $messageLong = 'this is a test notification', // optional
+        $href = '/test', // optional, e.g. backpack_url('/example')
+        $hrefText = 'test notification' // optional
+    ));
 
 #### Use in any other notification
 
