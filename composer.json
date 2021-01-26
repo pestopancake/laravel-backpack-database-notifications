@@ -1,0 +1,37 @@
+{
+  "name": "pestopancake/laravel-backpack-notifications",
+  "type": "library",
+  "description": "Database notifications interface for Laravel Backpack",
+  "keywords": [
+    "laravel",
+    "laravel backpack",
+    "notifications",
+    "database notifications"
+  ],
+  "homepage": "https://github.com/pestopancake/laravel-backpack-notifications",
+  "authors": [
+    {
+      "name": "pestopancake",
+      "email": "pestopancake@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "backpack/crud": "4.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pestopancake\\LaravelBackpackNotifications\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    },
+    "laravel": {
+      "providers": [
+        "Pestopancake\\LaravelBackpackNotifications\\LaravelBackpackNotificationsServiceProvider"
+      ]
+    }
+  }
+}
