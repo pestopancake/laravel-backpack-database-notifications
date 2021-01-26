@@ -1,6 +1,6 @@
 # Laravel Backpack Database Notifications
  
-![](https://github.com/pestopancake/laravel-backpack-database-notifications/raw/master/preview.gif)
+![](https://raw.githubusercontent.com/pestopancake/laravel-backpack-database-notifications/main/preview.gif)
 
 ## Prerequisites
 
