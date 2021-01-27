@@ -7,6 +7,8 @@
  - Have Laravel Backpack installed [backpack/crud](https://github.com/Laravel-Backpack/CRUD) v4.0.* | 4.1.*
  - Follow the steps for laravel's [database notifications prerequisites](https://laravel.com/docs/8.x/notifications#database-notifications), e.g: 
 
+<!-- x -->
+
     php artisan notifications:table
     php artisan migrate
 
