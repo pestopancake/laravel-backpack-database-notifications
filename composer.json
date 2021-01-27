@@ -1,5 +1,5 @@
 {
-  "name": "pestopancake/laravel-backpack-notifications",
+  "name": "pestopancake/laravel-backpack-database-notifications",
   "type": "library",
   "description": "Database notifications interface for Laravel Backpack",
   "keywords": [
