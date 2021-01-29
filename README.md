@@ -43,11 +43,11 @@ Edit 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' and ad
 The toArray method of the notification should be in this format:
 
     return [
-    	'type' => "info", // info / success / warning / error
-    	'message' => "",
-    	'message_long' => "", // optional
-    	'action_href' => "", // optional, e.g. backpack_url('/example')
-    	'action_text' => "", // optional
+        'type' => "info", // info / success / warning / error
+        'message' => "",
+        'message_long' => "", // optional
+        'action_href' => "", // optional, e.g. backpack_url('/example')
+        'action_text' => "", // optional
     ];
 
 The type will affect the colour of the toast notification (if toasts are enabled in the config)
@@ -62,3 +62,4 @@ The type will affect the colour of the toast notification (if toasts are enabled
 ## Todo
 
  - Add unit tests
+ - up to backpack 4.1.x
