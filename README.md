@@ -4,7 +4,10 @@
 
 ## Prerequisites
 
-Follow the steps for laravel's [database notifications prerequisites](https://laravel.com/docs/8.x/notifications#database-notifications), e.g: 
+ - Have Laravel Backpack installed [backpack/crud](https://github.com/Laravel-Backpack/CRUD) v4.0.* | 4.1.*
+ - Follow the steps for laravel's [database notifications prerequisites](https://laravel.com/docs/8.x/notifications#database-notifications), e.g: 
+
+<!-- x -->
 
     php artisan notifications:table
     php artisan migrate
@@ -29,7 +32,9 @@ Edit 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' and ad
 
 #### Use the included generic notification
 
-    use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification
+    use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
+    
+    $user = backpack_user();
     $user->notify(new DatabaseNotification(
         $type = 'info', // info / success / warning / error
         $message = 'test notification',
