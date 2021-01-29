@@ -20,7 +20,7 @@
 
 Publish the config file:
 
-    php artisan vendor:publish --provider="Pestopancake\\LaravelBackpackNotifications\\LaravelBackpackNotificationsServiceProvider"
+    php artisan vendor:publish --provider="Pestopancake\\LaravelBackpackNotifications\\LaravelBackpackNotificationsServiceProvider" --tag=config
 
 ### Show in side menu
 
@@ -63,8 +63,14 @@ The type will affect the colour of the toast notification (if toasts are enabled
 
  - Make sure the model you are notifying matches the model defined in your backpack config at backpack.base.user_model_fqn (found in config/backpack/base.php)
 
+## Change log
+
+See the [changelog](/pestopancake/laravel-backpack-database-notifications/blob/main/changelog.md) for more information on what has changed recently.
+
 
 ## Todo
 
  - Add unit tests
- - up to backpack 4.1.x
+ - translatable text
+ - permissions for admin view
+ - notification preferences
