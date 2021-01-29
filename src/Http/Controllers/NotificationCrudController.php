@@ -17,6 +17,18 @@ class NotificationCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    public function hasAdminAccess()
+    {
+        try {
+            return backpack_user()->hasPermissionTo(
+                config('backpack.databasenotifications.admin_permission_name'),
+                config('auth.defaults.guard', 'web')
+            );
+        } catch (\Spatie\Permission\Exceptions\PermissionDoesNotExist $e) {
+            return false;
+        }
+    }
+
     public function setup()
     {
         $this->crud->setModel('Pestopancake\LaravelBackpackNotifications\Models\Notification');
@@ -25,33 +37,22 @@ class NotificationCrudController extends CrudController
 
         $this->crud->addClause('orderBy', 'created_at', 'desc');
 
-        // $this->crud->addClause('where', 'notifiable_type', 'App\Models\BackpackUser');
-        // $this->crud->addClause('where', 'notifiable_id', backpack_user()->id);
-        $showAllUsers = backpack_user()->hasRole('super admin') && \Request::get('show_all');
+        $showAllUsers = $this->hasAdminAccess() && \Request::get('show_all');
         if (!$showAllUsers) {
             $this->crud->addClause('where', 'notifiable_id', backpack_user()->id);
             $this->crud->addClause('where', 'notifiable_type', config('backpack.base.user_model_fqn'));
-            
         }
 
         if (!\Request::get('show_dismissed')) {
             $this->crud->addClause('whereNull', 'read_at');
         }
 
-        // if(backpack_user()->hasRole('super admin')){
-        // $this->crud->addButtonFromModelFunction('top', 'show_all', 'showAllButton', 'beginning');
-        // }
         $this->crud->addButtonFromModelFunction('top', 'dismiss_all', 'dismissAllButton', 'beginning');
 
         $this->crud->addButtonFromModelFunction('line', 'action', 'actionButton', 'end');
         $this->crud->addButtonFromModelFunction('line', 'dismiss', 'dismissButton', 'end');
 
         $this->crud->denyAccess(['create', 'delete', 'update', 'show']);
-
-        // $this->crud->addButton('line', 'show', 'view', 'crud::buttons.preview', 'beginning');
-        // $this->crud->allowAccess('show');
-        // $this->crud->setShowView('admin/notification/view');
-
     }
 
     protected function setupListOperation()
@@ -73,7 +74,7 @@ class NotificationCrudController extends CrudController
             }
         );
 
-        if (backpack_user()->hasRole('super admin')) {
+        if ($this->hasAdminAccess()) {
             $this->crud->addFilter(
                 [
                     'type' => 'simple',
@@ -106,7 +107,7 @@ class NotificationCrudController extends CrudController
             }
         ]);
 
-        if (backpack_user()->hasRole('super admin') && \Request::get('show_all')) {
+        if ($this->hasAdminAccess() && \Request::get('show_all')) {
             $this->crud->addColumn([
                 'label' => "For",
                 'type' => 'closure',
@@ -117,31 +118,6 @@ class NotificationCrudController extends CrudController
                 }
             ]);
         }
-
-        // $this->crud->addColumn([
-        //     'label' => 'Type',
-        //     'type' => 'closure',
-        //     'function' => function ($entry) {
-        //         if ($entry->data->type) {
-        //             switch ($entry->data->type ?? '') {
-        //                 case 'member':
-        //                     $color = 'blue';
-        //                     break;
-        //                 case 'error':
-        //                     $color = 'red';
-        //                     break;
-        //                 case 'warning':
-        //                     $color = 'orange';
-        //                     break;
-        //                 default:
-        //                     $color = 'green';
-        //             }
-        //             return '<small class="label bg-' . $color . '">' . $entry->data->type . '</small>';
-        //         }
-        //     }
-        // ]);
-
-
     }
 
     protected function setupShowOperation()

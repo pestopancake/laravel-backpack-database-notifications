@@ -43,28 +43,6 @@ class Notification extends Model
         return json_decode($this->attributes['data']);
     }
 
-    public function showAllButton($crud)
-    {
-        if (\Request::get('show_all')) {
-            $url = strtok(\Request::getUri(), "?");
-            return '<a href="' . $url . '?" class="btn btn-default ladda-button">Show My Notifications</a>';
-        } else {
-            $url = \Request::fullUrlWithQuery(array_merge(\Request::query(), ['show_all' => '1']));
-            return '<a href="' . $url . '" class="btn btn-default ladda-button">Show Notifications For All Users</a>';
-        }
-    }
-
-    public function showAllUsersButton($crud)
-    {
-        if (\Request::get('show_all')) {
-            $url = strtok(\Request::getUri(), "?");
-            return '<a href="' . $url . '" class="btn btn-default ladda-button">Show My Notifications</a>';
-        } else {
-            $url = \Request::fullUrlWithQuery(array_merge(\Request::query(), ['show_all' => '1']));
-            return '<a href="' . $url . '" class="btn btn-default ladda-button">Show Notifications For All Users</a>';
-        }
-    }
-
     public function dismissAllButton($crud)
     {
         if (backpack_user()->unreadNotifications()->count()) {

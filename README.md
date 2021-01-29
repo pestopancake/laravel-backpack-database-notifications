@@ -28,6 +28,14 @@ Edit 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' and ad
 
     @include('backpack-database-notifications::sidebarMenuItem')
 
+### Admin view
+
+If you also have the [Permission Manager](https://github.com/Laravel-Backpack/PermissionManager) package installed then you can assign the permission 'notifications admin' to users for them to see admin functionality.
+
+To change the permission name edit 'admin_permission_name' in the databasenotifications config file.
+
+Currently users with the admin permission can see/dismiss notifications for all users.
+
 ### Create a notification
 
 #### Use the included generic notification
@@ -72,5 +80,4 @@ See the [changelog](/pestopancake/laravel-backpack-database-notifications/blob/m
 
  - Add unit tests
  - translatable text
- - permissions for admin view
  - notification preferences

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 - 2021-01-29
+
+### Added
+- permissions for admin view
+
 ## 1.0.1 - 2021-01-27
 
 ### Added
