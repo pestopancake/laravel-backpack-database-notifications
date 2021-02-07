@@ -1,8 +1,8 @@
 # Laravel Backpack Database Notifications
 
-[![StyleCI](https://github.styleci.io/repos/333218543/shield?branch=main)](https://github.styleci.io/repos/333218543?branch=main)
+[![Packagist Version](https://img.shields.io/packagist/v/pestopancake/laravel-backpack-database-notifications)](https://packagist.org/packages/pestopancake/laravel-backpack-database-notifications) [![Build Status](https://travis-ci.com/pestopancake/laravel-backpack-database-notifications.svg?branch=main)](https://travis-ci.com/pestopancake/laravel-backpack-database-notifications) [![StyleCI](https://github.styleci.io/repos/333218543/shield?branch=main)](https://github.styleci.io/repos/333218543?branch=main)
 
-![](https://raw.githubusercontent.com/pestopancake/laravel-backpack-database-notifications/main/preview.gif)
+![](https://raw.githubusercontent.com/pestopancake/laravel-backpack-database-notifications/main/preview.gif) 
 
 ## Prerequisites
 
