@@ -22,14 +22,14 @@ class DatabaseNotification extends Notification implements ShouldQueue
      * @return void
      */
     public function __construct(
-        $type = 'info',
         $message,
+        $type = 'info',
         $messageLong = null,
         $href = null,
         $hrefText = null
     ) {
-        $this->type = $type;
         $this->message = $message;
+        $this->type = $type;
         $this->messageLong = $messageLong;
         $this->href = $href;
         $this->hrefText = $hrefText;
@@ -55,8 +55,8 @@ class DatabaseNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'type' => $this->type,
             'message' => $this->message,
+            'type' => $this->type,
             'message_long' => $this->messageLong,
             'action_href' => $this->href,
             'action_text' => $this->hrefText,
