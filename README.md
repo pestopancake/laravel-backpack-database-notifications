@@ -1,5 +1,7 @@
 # Laravel Backpack Database Notifications
- 
+
+[![StyleCI](https://github.styleci.io/repos/333218543/shield?branch=main)](https://github.styleci.io/repos/333218543?branch=main)
+
 ![](https://raw.githubusercontent.com/pestopancake/laravel-backpack-database-notifications/main/preview.gif)
 
 ## Prerequisites
