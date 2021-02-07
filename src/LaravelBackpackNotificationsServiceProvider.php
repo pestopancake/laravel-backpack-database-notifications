@@ -2,21 +2,19 @@
 
 namespace Pestopancake\LaravelBackpackNotifications;
 
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelBackpackNotificationsServiceProvider extends ServiceProvider
 {
-
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->loadViewsFrom(__DIR__ . '/Views', 'backpack-database-notifications');
+        $this->loadViewsFrom(__DIR__.'/Views', 'backpack-database-notifications');
 
         $this->mergeConfigFrom(
             __DIR__.'/config/backpack/databasenotifications.php', 'backpack.databasenotifications'
         );
-        
+
         $this->publishes([
             __DIR__.'/config/backpack/databasenotifications.php' => config_path('backpack/databasenotifications.php'),
         ]);
@@ -33,5 +31,4 @@ class LaravelBackpackNotificationsServiceProvider extends ServiceProvider
     {
         return [];
     }
-
 }

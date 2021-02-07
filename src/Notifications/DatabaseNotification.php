@@ -27,8 +27,7 @@ class DatabaseNotification extends Notification implements ShouldQueue
         $messageLong = null,
         $href = null,
         $hrefText = null
-    )
-    {
+    ) {
         $this->type = $type;
         $this->message = $message;
         $this->messageLong = $messageLong;
