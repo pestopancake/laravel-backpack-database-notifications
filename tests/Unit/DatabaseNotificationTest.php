@@ -21,8 +21,8 @@ class DatabaseNotificationTest extends TestCase
             'password' => bcrypt('test'),
         ]);
         $user->notify(new DatabaseNotification(
-            $type = 'info', // info / success / warning / error
             $message = 'test notification',
+            $type = 'info', // info / success / warning / error
             $messageLong = 'this is a test notification', // optional
             $href = '/test', // optional, e.g. backpack_url('/example')
             $hrefText = 'test notification' // optional
