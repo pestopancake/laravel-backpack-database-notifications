@@ -19,10 +19,28 @@
   "require": {
     "backpack/crud": "4.0.*|4.1.*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "orchestra/testbench": "^6.11"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --testdox",
+    "post-autoload-dump": [
+        "@php vendor/bin/testbench package:discover --ansi"
+    ]
+},
   "autoload": {
     "psr-4": {
       "Pestopancake\\LaravelBackpackNotifications\\": "src"
     }
+  },
+  "autoload-dev": {
+      "psr-4": {
+          "Pestopancake\\LaravelBackpackNotifications\\Tests\\": "tests"
+      },
+      "exclude-from-classmap": [
+          "**/config"
+      ]
   },
   "extra": {
     "branch-alias": {
