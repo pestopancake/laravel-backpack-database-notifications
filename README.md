@@ -26,9 +26,9 @@ Publish the config file:
 
 ### Show in side menu
 
-Edit 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' and add:
+Add a menu item to your 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' by running:
 
-    @include('backpack-database-notifications::sidebarMenuItem')
+    php artisan backpack:add-sidebar-content "@include('backpack-database-notifications::sidebarMenuItem')"
 
 ### Admin view
 
