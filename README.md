@@ -54,8 +54,8 @@ use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification
 $user = backpack_user();
 $user->notify(new DatabaseNotification(
     $type = 'info', // info / success / warning / error
-    $message = 'Test Notification '.rand(1, 99999),
-    $messageLong = 'This is a longer message for the test notification.', // optional
+    $message = 'Test Notification',
+    $messageLong = 'This is a longer message for the test notification '.rand(1, 99999), // optional
     $href = '/some-custom-url', // optional, e.g. backpack_url('/example')
     $hrefText = 'Go to custom URL' // optional
 ));
