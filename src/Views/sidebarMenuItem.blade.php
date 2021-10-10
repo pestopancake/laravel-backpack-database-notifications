@@ -3,7 +3,7 @@ $unreadNotificationsCount = backpack_user()->unreadNotifications()->count();
 @endphp
 
  <li class="nav-item">
-	<a class="nav-link" href="{{ backpack_url('notification') }}"><i class="fa nav-icon fa-bell"></i> <span>Notifications</span>
+	<a class="nav-link" href="{{ backpack_url('notification') }}"><i class="nav-icon la la-bell"></i> <span>Notifications</span>
 		<span class="pull-right-container">
 			<small 
 				class="unreadnotificationscount badge badge-secondary pull-right {{($unreadNotificationsCount)? 'bg-primary' : 'bg-secondary'}}" 
