@@ -60,12 +60,11 @@ class Notification extends Model
     public function actionButton()
     {
         $str = '';
-        if (! empty($this->data->action)) {
-            $str = '<a href="'.$this->data->action->url.'" class="btn btn-primary btn-xs mb-1">'.$this->data->action->title.'</a><br>';
+        if (!empty($this->data->action)) {
+            $str = '<a href="' . $this->data->action->url . '" class="btn btn-primary">' . ucfirst($this->data->action->title) . '</a>';
         } elseif ($this->data->action_href ?? false) {
-            $str = '<a href="'.$this->data->action_href.'" class="btn btn-primary btn-xs mb-1">'.$this->data->action_text.'</a><br>';
+            $str = '<a href="' . $this->data->action_href . '" class="btn btn-primary">' . ucfirst($this->data->action_text) . '</a>';
         }
-
         return $str;
     }
 }
