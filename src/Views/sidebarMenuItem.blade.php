@@ -35,14 +35,21 @@ $unreadNotificationsCount = backpack_user()->unreadNotifications()->count();
 						});
 						@if(config('backpack.databasenotifications.enable_toasts'))
 						if(data.last_notification && prevCount < data.count) {
-							let type = ['success', 'warning', 'error', 'info'].includes(data.last_notification.type) ? data.last_notification.type : "info"
+							let type = ['success', 'warning', 'error', 'info'].includes(data.last_notification.type) ? data.last_notification.type : "info";
+							var message = data.last_notification.message;
+
+							// if message_long is present, show that in the notification too
+							if (data.last_notification.message_long !== null) {
+								message = '<strong>' + data.last_notification.message + '</strong><br>' + data.last_notification.message_long;
+							}
+
 							new Noty({
 								type: type,
-								text: data.last_notification.message,
+								text: message,
 								timeout: 10000,
 								closeWith: ['button'],
 								buttons: [
-									Noty.button('view notifications', 'btn btn-' + type, function () {
+									Noty.button('See All Notifications', 'ml-2 btn btn-default btn-sm', function () {
 										window.location = '{{backpack_url('notification')}}';
 									}, {id: 'button1', 'data-status': 'ok'})
 								]
