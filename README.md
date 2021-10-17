@@ -1,6 +1,6 @@
 # Laravel Backpack Database Notifications
 
-[![Packagist Version](https://img.shields.io/packagist/v/pestopancake/laravel-backpack-database-notifications)](https://packagist.org/packages/pestopancake/laravel-backpack-database-notifications) [![Build Status](https://travis-ci.com/pestopancake/laravel-backpack-database-notifications.svg?branch=main)](https://travis-ci.com/pestopancake/laravel-backpack-database-notifications) [![StyleCI](https://github.styleci.io/repos/333218543/shield?branch=main)](https://github.styleci.io/repos/333218543?branch=main)
+[![Packagist Version](https://img.shields.io/packagist/v/pestopancake/laravel-backpack-database-notifications)](https://packagist.org/packages/pestopancake/laravel-backpack-database-notifications) [![Build Status](https://app.travis-ci.com/pestopancake/laravel-backpack-database-notifications.svg?branch=main)](https://app.travis-ci.com/pestopancake/laravel-backpack-database-notifications) [![StyleCI](https://github.styleci.io/repos/333218543/shield?branch=main)](https://github.styleci.io/repos/333218543?branch=main)
 
 Easily add an admin interface for standard Laravel database notifications. This package includes:
 - a sidebar item, with an optional notification count for the current user (refreshed with AJAX every second)
