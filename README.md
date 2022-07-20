@@ -22,7 +22,13 @@ The only thing left for you to do is to actually trigger notifications for your 
 
 ## Installation
 
+### Backpack v5
+
     composer require pestopancake/laravel-backpack-database-notifications
+
+### Backpack v4
+    
+    composer require pestopancake/laravel-backpack-database-notifications:1.0.5
 
 ## Usage
 
