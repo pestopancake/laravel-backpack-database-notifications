@@ -34,7 +34,7 @@ class NotificationCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix').'/notification');
         $this->crud->setEntityNameStrings('notification', 'notifications');
 
-        $this->crud->addClause('orderBy', 'created_at', 'desc');
+        $this->crud->addClause('orderBy', 'read_at', 'asc');
 
         $showAllUsers = $this->hasAdminAccess() && \Request::get('show_all');
         if (! $showAllUsers) {
@@ -42,9 +42,9 @@ class NotificationCrudController extends CrudController
             $this->crud->addClause('where', 'notifiable_type', config('backpack.base.user_model_fqn'));
         }
 
-        if (! \Request::get('show_dismissed')) {
-            $this->crud->addClause('whereNull', 'read_at');
-        }
+//        if (! \Request::get('show_dismissed')) {
+//            $this->crud->addClause('whereNull', 'read_at');
+//        }
 
         $this->crud->addButtonFromModelFunction('top', 'dismiss_all', 'dismissAllButton', 'beginning');
 
