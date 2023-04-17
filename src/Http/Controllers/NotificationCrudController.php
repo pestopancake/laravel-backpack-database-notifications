@@ -2,7 +2,6 @@
 
 namespace Pestopancake\LaravelBackpackNotifications\Http\Controllers;
 
-use App\Models\BackpackUser;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Carbon\Carbon;
 use CRUD;
@@ -112,7 +111,7 @@ class NotificationCrudController extends CrudController
                 'type' => 'closure',
                 'name' => 'notifiable_id',
                 'function' => function ($entry) {
-                    $user = BackpackUser::find($entry->notifiable_id);
+                    $user = backpack_user()::find($entry->notifiable_id);
 
                     return $user->displayName ?? '-';
                 },
