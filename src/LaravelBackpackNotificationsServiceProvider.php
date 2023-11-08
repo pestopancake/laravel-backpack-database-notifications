@@ -17,7 +17,7 @@ class LaravelBackpackNotificationsServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/config/backpack/databasenotifications.php' => config_path('backpack/databasenotifications.php'),
-        ]);
+        ], 'config');
     }
 
     public function register()
