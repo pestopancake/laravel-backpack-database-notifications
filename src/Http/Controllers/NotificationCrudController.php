@@ -6,7 +6,6 @@ use App\Models\BackpackUser;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Carbon\Carbon;
 use CRUD;
-use Pestopancake\LaravelBackpackNotifications\Models\Notification;
 
 class NotificationCrudController extends CrudController
 {
@@ -30,7 +29,7 @@ class NotificationCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('Pestopancake\LaravelBackpackNotifications\Models\Notification');
+        $this->crud->setModel(config('backpack.databasenotifications.notification_model'));
         $this->crud->setRoute(config('backpack.base.route_prefix').'/notification');
         $this->crud->setEntityNameStrings('notification', 'notifications');
 
@@ -147,7 +146,8 @@ class NotificationCrudController extends CrudController
 
     public function dismiss($notificationId)
     {
-        $notification = Notification::findOrFail($notificationId);
+        $notificationClass = config('backpack.databasenotifications.notification_model');
+        $notification = $notificationClass::findOrFail($notificationId);
 
         $notification->read_at = Carbon::now();
         $notification->save();

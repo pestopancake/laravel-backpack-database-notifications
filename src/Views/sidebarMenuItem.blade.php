@@ -2,17 +2,23 @@
 $unreadNotificationsCount = backpack_user()->unreadNotifications()->count();
 @endphp
 
- <li class="nav-item">
-	<a class="nav-link" href="{{ backpack_url('notification') }}"><i class="nav-icon la la-bell"></i> <span>Notifications</span>
-		<span class="pull-right-container">
-			<small 
-				class="unreadnotificationscount badge badge-secondary pull-right {{($unreadNotificationsCount)? 'bg-primary' : 'bg-secondary'}}" 
-				data-toggle="tooltip" 
-				title="{{ $unreadNotificationsCount }} unread notifications"
-				>{{ $unreadNotificationsCount }}</small>
-		</span>
-	</a>
-</li>
+<a class="nav-link" href="{{ backpack_url('notification') }}">
+	<i class="la la-bell fs-2 me-1">
+		<small
+		class="unreadnotificationscount badge badge-secondary pull-right {{($unreadNotificationsCount)? 'bg-primary' : 'bg-secondary'}}"
+		data-toggle="tooltip"
+		title="{{ $unreadNotificationsCount }} unread notifications"
+		>{{ $unreadNotificationsCount }}</small>
+	</i>
+</a>
+
+@push('after_styles')
+<style type="text/css">
+	.unreadnotificationscount {
+		font-size: 60% !important;
+	}
+</style>
+@endpush
 
 @if(config('backpack.databasenotifications.enable_ajax_count'))
 	@push('after_scripts')
@@ -29,10 +35,11 @@ $unreadNotificationsCount = backpack_user()->unreadNotifications()->count();
 					.then(data => {
 						data.count = parseInt(data.count);
 						let prevCount;
-						document.getElementsByClassName('unreadnotificationscount').forEach(function(element){
-							prevCount = parseInt(element.innerHTML);
-							element.innerHTML = data.count;
-						});
+                        let notificationCountEls = document.getElementsByClassName('unreadnotificationscount');
+                        for (var i=0; i<notificationCountEls.length;i++) {
+                            prevCount = parseInt(notificationCountEls[i].innerHTML);
+                            notificationCountEls[i].innerHTML = data.count;
+                        }
 						@if(config('backpack.databasenotifications.enable_toasts'))
 						if(data.last_notification && prevCount < data.count) {
 							let type = ['success', 'warning', 'error', 'info'].includes(data.last_notification.type) ? data.last_notification.type : "info";
