@@ -17,7 +17,7 @@
   ],
   "license": "MIT",
   "require": {
-    "backpack/crud": "^5.0|^6.0"
+    "backpack/crud": "^6.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~8.0|~7.0|~9.0",
