@@ -13,7 +13,6 @@ The only thing left for you to do is to actually trigger notifications for your 
 ## Prerequisites
 
  - Have Laravel Backpack installed [backpack/crud](https://github.com/Laravel-Backpack/CRUD) v4.0.* | 4.1.*
- - Pro license (unfortunately using filters requires a Pro license)
  - Follow the steps for laravel's [database notifications prerequisites](https://laravel.com/docs/8.x/notifications#database-notifications), e.g: 
 
 <!-- x -->
