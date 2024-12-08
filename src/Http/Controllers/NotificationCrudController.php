@@ -59,29 +59,31 @@ class NotificationCrudController extends CrudController
 
         // Filters
 
-        $this->crud->addFilter(
-            [
-                'type' => 'simple',
-                'name' => 'show_dismissed',
-                'label' => 'Show Dismissed',
-            ],
-            false,
-            function () {
-                $this->crud->addClause('whereNotNull', 'read_at');
-            }
-        );
-
-        if ($this->hasAdminAccess()) {
+        if (backpack_pro()) {
             $this->crud->addFilter(
                 [
                     'type' => 'simple',
-                    'name' => 'show_all',
-                    'label' => 'Show notifications for all users (admin only)',
+                    'name' => 'show_dismissed',
+                    'label' => 'Show Dismissed',
                 ],
                 false,
                 function () {
+                    $this->crud->addClause('whereNotNull', 'read_at');
                 }
             );
+    
+            if ($this->hasAdminAccess()) {
+                $this->crud->addFilter(
+                    [
+                        'type' => 'simple',
+                        'name' => 'show_all',
+                        'label' => 'Show notifications for all users (admin only)',
+                    ],
+                    false,
+                    function () {
+                    }
+                );
+            }
         }
 
         // columns
