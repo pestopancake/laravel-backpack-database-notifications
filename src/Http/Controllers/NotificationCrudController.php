@@ -21,7 +21,7 @@ class NotificationCrudController extends CrudController
                 config('backpack.databasenotifications.admin_permission_name'),
                 config('auth.defaults.guard', 'web')
             );
-        } catch (\Spatie\Permission\Exceptions\PermissionDoesNotExist $e) {
+        } catch (\Exception $e) {
             return false;
         }
     }
