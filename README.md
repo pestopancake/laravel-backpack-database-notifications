@@ -13,16 +13,19 @@ The only thing left for you to do is to actually trigger notifications for your 
 ## Prerequisites
 
  - Have Laravel Backpack installed [backpack/crud](https://github.com/Laravel-Backpack/CRUD) v4.0.* | 4.1.*
+ - Pro license (unfortunately using filters requires a Pro license)
  - Follow the steps for laravel's [database notifications prerequisites](https://laravel.com/docs/8.x/notifications#database-notifications), e.g: 
 
 <!-- x -->
 
     php artisan notifications:table
     php artisan migrate
+ 
+ - Have Permission Manager installed [Laravel-Backpack/PermissionManager](https://github.com/Laravel-Backpack/PermissionManager)
 
 ## Installation
 
-### Backpack v5
+### Backpack v5 / v6
 
     composer require pestopancake/laravel-backpack-database-notifications
 
@@ -40,11 +43,11 @@ Publish the config file:
 
 Add a menu item to your 'resources/views/vendor/backpack/base/inc/sidebar_content.blade.php' by running:
 
-    php artisan backpack:add-sidebar-content "@include('backpack-database-notifications::sidebarMenuItem')"
+    php artisan backpack:add-menu-content "@include('backpack-database-notifications::sidebarMenuItem')"
 
 ### Admin view
 
-If you also have the [Permission Manager](https://github.com/Laravel-Backpack/PermissionManager) package installed then you can assign the permission 'notifications admin' to users for them to see admin functionality.
+With the [Permission Manager](https://github.com/Laravel-Backpack/PermissionManager) package installed you can assign the permission 'notifications admin' to users for them to see admin functionality.
 
 To change the permission name edit 'admin_permission_name' in the databasenotifications config file.
 
